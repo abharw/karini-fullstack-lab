@@ -23,13 +23,10 @@ app.use(express.json());
 app.use("/api/items", itemsRoutes);
 app.use("/api/search", searchRoutes); 
 
-// Start server
+// Start the server
 async function startServer() {
   try {
-    // Connect to MongoDB
     await connectToDatabase();
-    
-    // Start Express server
     app.listen(PORT, () => {
       console.log(`Server is running on port: ${PORT}`);
     });

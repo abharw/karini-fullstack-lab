@@ -64,10 +64,10 @@ export function parseSearchQuery(message: string): SearchParams {
   const skuMatch = message.match(/(?:sku|product id|item number|#)\s*[:]?\s*([a-zA-Z0-9-]+)/i);
   if (skuMatch) {
     searchParams.sku = skuMatch[1];
-    return searchParams; // If we find an SKU, it's likely the primary search intent
+    return searchParams; 
   }
   
-  // Look for price ranges
+  // Price ranges
   const priceRangeMatch = message.match(/under\s+\$(\d+)/i);
   if (priceRangeMatch) {
     searchParams.maxPrice = parseInt(priceRangeMatch[1], 10);
@@ -78,14 +78,14 @@ export function parseSearchQuery(message: string): SearchParams {
     searchParams.minPrice = parseInt(minPriceMatch[1], 10);
   }
   
-  // Look for price ranges with between/and
+  // Price ranges with between/and
   const priceBetweenMatch = message.match(/between\s+\$(\d+)\s+and\s+\$(\d+)/i);
   if (priceBetweenMatch) {
     searchParams.minPrice = parseInt(priceBetweenMatch[1], 10);
     searchParams.maxPrice = parseInt(priceBetweenMatch[2], 10);
   }
   
-  // Look for category mentions
+  // Category mentions
   const categories = ['electronics', 'clothing', 'shoes', 'accessories', 'home', 'kitchen'];
   for (const category of categories) {
     if (message.toLowerCase().includes(category)) {
@@ -94,7 +94,7 @@ export function parseSearchQuery(message: string): SearchParams {
     }
   }
   
-  // If no specific parameters were matched, use the whole message as a general query
+  // Else, use the whole message as a general query
   if (Object.keys(searchParams).length === 0) {
     searchParams.query = message;
   }

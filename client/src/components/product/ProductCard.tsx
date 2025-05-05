@@ -5,14 +5,13 @@ import { Item } from "@/types/Item"
 import { useCart } from "@/hooks/useCart"
 import { ProductImage } from "./ProductImage"
 import { formatPrice } from "@/lib/utils"
-
+import { toast } from "sonner"
 interface ProductCardProps {
   item: Item
 }
 
 export function ProductCard({ item }: ProductCardProps) {
   const { addToCart } = useCart()
-
 
   return (
     <Card className="overflow-hidden flex flex-col h-full">
@@ -41,7 +40,12 @@ export function ProductCard({ item }: ProductCardProps) {
         <span className="font-semibold">
           ${formatPrice(item.variant_price)}
         </span>
-        <Button onClick={() => addToCart(item)} size="sm">
+        <Button onClick={
+          () => {
+            addToCart(item)
+            toast("Item added to cart!")
+            }
+          } size="sm">
           Add to Cart
         </Button>
       </CardFooter>

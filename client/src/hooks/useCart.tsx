@@ -46,7 +46,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
             ? { ...cartItem, quantity: cartItem.quantity + 1 } 
             : cartItem
         })
-      // Otherwise, return new cart with the new item
       } else {
         return [...prevCart, { ...item, quantity: 1 }]
       }

@@ -25,7 +25,6 @@ router.get("/", async (req, res) => {
     if (minPrice !== undefined || maxPrice !== undefined) {
       mongoQuery.variant_price = {};
       
-      // Handle price as either string or number
       if (minPrice !== undefined) {
         mongoQuery.variant_price.$gte = parseFloat(minPrice);
       }
@@ -50,7 +49,7 @@ router.get("/", async (req, res) => {
     // Get results from database
     let collection = getDb().collection("items");
     let results = await collection.find(mongoQuery)
-      .limit(10) // Limit to 10 results for chat display
+      .limit(10) 
       .toArray();
     
     res.send(results);

@@ -46,12 +46,11 @@ export async function validateImageUrl(src: string): Promise<boolean> {
   }
 }
 
-// Basic validation for required fields
+// Validation for the required fields
 export function hasRequiredFields(item: Partial<Item>): item is Item {
   return !!(item && item.title && item.variant_price && item.image_src);
 }
 
-// Helper function to validate an item (synchronous check for required fields)
 export function isValidItem(item: Partial<Item>): item is Item {
   return hasRequiredFields(item);
 }
