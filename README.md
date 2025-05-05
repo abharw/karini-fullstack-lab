@@ -26,3 +26,5 @@
    cd client
    npm run dev
    ```
+
+(Frontend hosted on **Vercel**, backend hosted on **Render**)
