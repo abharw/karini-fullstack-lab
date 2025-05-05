@@ -11,7 +11,7 @@
    npm install
    ```
    
-3. **Install client dependencies: **
+3. **Install client dependencies:**
    ```bash
    cd client
    npm install
