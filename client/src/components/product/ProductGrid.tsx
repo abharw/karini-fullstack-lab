@@ -1,12 +1,11 @@
 import { Item } from "@/types/Item";
 import { ProductCard } from "./ProductCard";
-
+import { baseUrl } from "../../../config";
 interface ProductGridProps {
   items: Item[];
 }
 
 export function ProductGrid({ items }: ProductGridProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
   if (items.length === 0) {
     return (
       <div className="text-center p-12 border rounded-lg">

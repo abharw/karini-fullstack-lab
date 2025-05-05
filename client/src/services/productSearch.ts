@@ -1,4 +1,6 @@
 import { Item } from "@/types/Item";
+import { baseUrl } from "../../config";
+
 
 export type SearchParams = {
   sku?: string;
@@ -9,7 +11,7 @@ export type SearchParams = {
 };
 
 export async function searchProducts(searchParams: SearchParams): Promise<Item[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL;  
+
   try {
     // Convert search params to URL query parameters
     const queryParams = new URLSearchParams();

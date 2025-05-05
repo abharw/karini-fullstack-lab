@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import type { Item } from "@/types/Item"
 import { hasRequiredFields, validateImageUrl } from "@/types/Item"
+import { baseUrl } from "../../config";
 
 export const useProducts = () => {
   const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
   useEffect(() => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
     const loadItems = async () => {
       try {
         setLoading(true)

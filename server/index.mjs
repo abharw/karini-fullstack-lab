@@ -12,7 +12,12 @@ const PORT = process.env.PORT || 5050;
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  // origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
