@@ -37,7 +37,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// create a new item
+// Create a new item
 router.post("/", async (req, res) => {
   try {
     let collection = getDb().collection("items");
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// update an item
+// Update an item
 router.patch("/:id", async (req, res) => {
   try {
     let collection = getDb().collection("items");
