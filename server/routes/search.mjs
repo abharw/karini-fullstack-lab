@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const { sku, query, category, minPrice, maxPrice } = req.query;
-    
+    console.log(req.query);
     // Build MongoDB query object
     const mongoQuery = {};
     

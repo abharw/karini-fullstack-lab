@@ -1,4 +1,4 @@
-import { Item } from "@/types/Item"
+import { isValidItem, Item } from "@/types/Item"
 import { useCart } from "@/hooks/useCart"
 import { formatPrice } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -22,13 +22,13 @@ export function ChatSearchResults({ results }: ChatSearchResultsProps) {
           <Card key={typeof item._id === 'string' ? item._id : item._id.toString()} 
                 className="overflow-hidden flex flex-row border rounded-md">
             <div className="w-16 h-16 flex-shrink-0 bg-muted">
-              {item.image_src && (
+              {isValidItem(item) && (
                 <img 
                   src={item.image_src} 
                   alt={item.title || 'Product'} 
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
+                    (e.target as HTMLImageElement).src = "/coming-soon.png";
                   }}
                 />
               )}

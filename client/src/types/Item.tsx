@@ -39,14 +39,14 @@ export interface Item {
 export async function validateImageUrl(src: string): Promise<boolean> {
   try {
     const response = await fetch(src, { method: "HEAD" });
-    return response.ok; // Returns true for status 200-299
+    return response.ok;
   } catch (error) {
     console.error("Error checking image URL:", error);
     return false;
   }
 }
 
-// Validation for the required fields
+
 export function hasRequiredFields(item: Partial<Item>): item is Item {
   return !!(item && item.title && item.variant_price && item.image_src);
 }

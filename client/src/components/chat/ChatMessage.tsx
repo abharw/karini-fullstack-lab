@@ -15,7 +15,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
       <div className={`flex gap-2 max-w-[90%] ${isUser ? "flex-row-reverse" : ""}`}>
         <Avatar className="h-8 w-8 flex-shrink-0">
           <AvatarFallback>{isUser ? "U" : "S"}</AvatarFallback>
-          {!isUser && <AvatarImage src="/placeholder.svg?height=32&width=32" />}
+          {!isUser && <AvatarImage src="" />}
         </Avatar>
         
         <div className="flex flex-col">

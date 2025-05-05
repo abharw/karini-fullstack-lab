@@ -19,7 +19,9 @@ export function ChatSheet() {
           <SheetTitle>Customer Support</SheetTitle>
         </SheetHeader>
         <div className="mt-6 flex flex-col h-[calc(100vh-10rem)]">
-          <ChatMessageList />
+          <div className="flex-1 overflow-y-auto">
+            <ChatMessageList />
+          </div>
           <div className="pt-4 border-t mt-auto">
             <ChatInput />
           </div>

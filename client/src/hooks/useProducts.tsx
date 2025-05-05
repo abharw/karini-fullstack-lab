@@ -27,7 +27,6 @@ export const useProducts = () => {
         const results = await response.json()
         console.log("Fetched results:", results)
         
-        // Filter items with required fields
         const itemsWithRequiredFields = results.filter(hasRequiredFields)
         
         // Validate images and filter items with valid images
@@ -38,11 +37,10 @@ export const useProducts = () => {
           })
         )
         
-        // Filter out null items (those with invalid images)
         const validItems = validatedPromises.filter(item => item !== null) as Item[]
         
         console.log(`Showing ${validItems.length} of ${itemsWithRequiredFields.length} items with valid images`)
-        setItems(validItems)
+        setItems(results)
         setError(null)
       } catch (err) {
         console.error("Failed to fetch items:", err)

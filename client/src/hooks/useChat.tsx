@@ -35,7 +35,6 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     },
   ])
   const [newMessage, setNewMessage] = useState<string>("")
-
   // Helper function to check if a message appears to be a database query
   const isDatabaseQuery = (message: string): boolean => {
     const queryPatterns = [
@@ -55,8 +54,9 @@ export function ChatProvider({ children }: { children: ReactNode }) {
 
   // Process database query and return results
   const processQuery = async (query: string) => {
+
     try {
-      // Add a "thinking" message
+
       setChatMessages(prev => [...prev, {
         sender: "system",
         content: { type: 'text', text: "Searching our product database..." },

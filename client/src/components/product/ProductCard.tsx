@@ -43,7 +43,7 @@ export function ProductCard({ item }: ProductCardProps) {
         <Button onClick={
           () => {
             addToCart(item)
-            toast("Item added to cart!")
+            toast("Item added to cart")
             }
           } size="sm">
           Add to Cart

@@ -77,7 +77,15 @@ export function parseSearchQuery(message: string): SearchParams {
   if (minPriceMatch) {
     searchParams.minPrice = parseInt(minPriceMatch[1], 10);
   }
-  
+
+  // Handle price range queries without category filtering
+  if (searchParams.minPrice !== undefined || searchParams.maxPrice !== undefined) {
+    if (message.toLowerCase().includes('show') || message.toLowerCase().includes('find') || 
+        message.toLowerCase().includes('get')) {
+      return searchParams;
+    }
+  }
+
   // Price ranges with between/and
   const priceBetweenMatch = message.match(/between\s+\$(\d+)\s+and\s+\$(\d+)/i);
   if (priceBetweenMatch) {
@@ -93,6 +101,9 @@ export function parseSearchQuery(message: string): SearchParams {
       break;
     }
   }
+
+
+  
   
   // Else, use the whole message as a general query
   if (Object.keys(searchParams).length === 0) {
