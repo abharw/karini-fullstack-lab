@@ -6,6 +6,7 @@ interface ProductImageProps {
 }
 
 export function ProductImage({ src, alt }: ProductImageProps) {
+
   if (src) {
     return (
         <Image

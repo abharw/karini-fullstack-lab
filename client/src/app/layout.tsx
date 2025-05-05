@@ -27,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         {children}
       </body>
     </html>
